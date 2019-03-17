@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/Layout.css" th:href="@{/css/Main.css}" rel="stylesheet" />
+<body>
+
+<h1>Rebobank Customer Statement Processor</h1>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+   
+    
+    <input class ="button" id="multipleFileUploadInput" type="file" name="files" multiple ="multiple" /> <br/> <br/>
+    <input class ="button" type="submit" value="Submit" />
+</form>
+
+</body>
+</html>

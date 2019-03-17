@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<link href="../static/css/Layout.css" th:href="@{/css/Main.css}" rel="stylesheet" />
+
+
+<body>
+
+<h1>Rebobank Customer Statement Processor</h1>
+
+<div th:if="${message}">
+
+    <h2 th:text="${message}"/>
+    
+</div>
+
+<div th:if="${not #lists.isEmpty(failedRecords)}">
+    <h3>Failed Reference List</h3>
+    <table border ="1">
+      <tr>
+      	<th>Reference</th>
+      	<th>AccountNumber</th>
+        <th>Description</th>
+        <th>Start Balance</th>
+        <th>Mutation</th>
+        <th>End Balance</th>
+      </tr>
+      <tr th:each="record  : ${failedRecords}">
+      	
+        <td th:text="${record.reference}"/>
+        <td th:text="${record.accountNumber}"/>
+        <td th:text="${record.description}"/>
+        <td th:text="${record.startBalance}"/>
+        <td th:text="${record.mutation}"/>
+        <td th:text="${record.endBalance}"/>
+       
+      </tr>
+    </table>
+</div>
+<br></br>
+
+<form action="/backToupload" >
+    <input  class ="button" type="submit" value="Try Again" />
+</form>
+
+
+</body>
+</html>
